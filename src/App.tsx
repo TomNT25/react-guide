@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { RoutingDemo } from './pages/routing/RoutingDemo';
+import { UseStateDemo } from './pages/hooks/UsesStateDemo';
+import { UseEffectDemo } from './pages/hooks/UsesEffectDemo';
+import { NavBar } from './components/Navbar';
+import { UseContextDemo } from './pages/hooks/UsesContextDemo';
+import { UseReducerDemo } from './pages/hooks/UsesReducerDemo';
+import { UseRefDemo } from './pages/hooks/UsesRefDemo';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Navigate to="/use-state" replace />} />
+          <Route path="/use-state" element={<UseStateDemo />} />
+          <Route path="/use-effect" element={<UseEffectDemo />} />
+          <Route path="/use-ref" element={<UseRefDemo />} />
+          <Route path="/use-reducer" element={<UseReducerDemo />} />
+          <Route path="/use-context" element={<UseContextDemo />} />
+
+          <Route path="/routing" element={<RoutingDemo />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
