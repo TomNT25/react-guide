@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { RoutingDemo } from './pages/routing/RoutingDemo';
-import { UseStateDemo } from './pages/hooks/UsesStateDemo';
-import { UseEffectDemo } from './pages/hooks/UsesEffectDemo';
 import { NavBar } from './components/Navbar';
 import { UseContextDemo } from './pages/hooks/UsesContextDemo';
+import { UseEffectDemo } from './pages/hooks/UsesEffectDemo';
 import { UseReducerDemo } from './pages/hooks/UsesReducerDemo';
 import { UseRefDemo } from './pages/hooks/UsesRefDemo';
+import { UseStateDemo } from './pages/hooks/UsesStateDemo';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <NavBar />
       <main>
         <Routes>
@@ -24,7 +24,7 @@ const App: React.FC = () => {
           <Route path="/routing" element={<RoutingDemo />} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
